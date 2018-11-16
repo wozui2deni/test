@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import axios from"axios"
+import VueAxios from "vue-axios"
+Vue.use(VueAxios,axios);
+
 import MintUI from "mint-ui"
 import "mint-ui/lib/style.css"
 Vue.use(MintUI);
@@ -11,6 +15,7 @@ Vue.use(MintUI);
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import "./lib/mui/dist/css/mui.css"
+import "./lib/mui/dist/css/icons-extra.css"
 
 Vue.config.productionTip = false
 
