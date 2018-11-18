@@ -1,18 +1,21 @@
 <template>
     <div>
       <!--轮播图Swipe 区域-->
-      <mt-swipe :auto="2000" :speed="200">
-        <mt-swipe-item v-for="item in this.content" :key="item.id">
-          <!--<img :src="item.img" alt="轮播图">-->
-          <p>{{item.id+":"+item.ctime+"'通过GET请求从http://www.liulongbin.top:3005/api/getprodlist'获取数据,仅供测试"}}</p>
+      <mt-swipe :auto="2000" :speed="400">
+        <mt-swipe-item v-for="item in this.content.slice(0,10)" :key="item.uniquekey">
+          <a :href="item.url">
+            <h2>{{item.title}}</h2>
+            <img :src="item.thumbnail_pic_s" alt="轮播图">
+          </a>
+          <!--<p>{{item.id+":"+item.ctime}}</p>-->
         </mt-swipe-item>
       </mt-swipe>
 
       <!--六宫格 区域-->
       <ul class="mui-table-view mui-grid-view mui-grid-9">
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/newslist">
           <img src="../../assets/menu1.png">
-          <div class="mui-media-body">新闻资讯</div></a></li>
+          <div class="mui-media-body">新闻资讯</div></router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
           <img src="../../assets/menu2.png">
           <div class="mui-media-body">图片分享</div></a></li>
@@ -47,51 +50,23 @@
       },
       methods:{
           getLunbotu(){
-            this.axios.get("http://www.liulongbin.top:3005/api/getprodlist").then(result=>{
-              if (result.data.status === 0){
-                this.content = result.data.message;
-                console.log(result);
-                // Toast("轮播图加载成功");
-              }else{
-                Toast("轮播图加载失败");
-              }
-          });
+            this.axios.get("/api/toutiao/index",{params:{type:"shishang",key:"a6557979e51d6b44776f798b715452a0"}}).then(result=>{
+            this.content = result.data.result.data;
+          }).catch(error=>{
+            Toast("获取图片失败"+error)
+            });
         }
     }}
 </script>
 
 <style scoped lang="scss">
-  .mint-swipe{
-    height: 200px;
-    .mint-swipe-item{
-      &:nth-child(1){
-        background-color: royalblue;
-      }
-      &:nth-child(2){
-        background-color: palegreen;
-      }
-      &:nth-child(3){
-        background-color: greenyellow;
-      }
-      &:nth-child(4){
-        background-color: salmon;
-      }
-      &:nth-child(5){
-        background-color: firebrick;
-      }
-      &:nth-child(6){
-        background-color: #6641e2;
-      }
-      &:nth-child(7){
-        background-color: hotpink;
-      }
-    }
-    p{
-      font-size: 20px;
-      line-height: 30px;
-    }
+.mint-swipe{
+  height: 25em;
+  text-align: center;
+  img{
+    height: 80%;
   }
-
+}
   .mui-grid-view.mui-grid-9{
     img{
       width: 60px;

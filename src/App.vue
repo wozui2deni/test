@@ -51,7 +51,7 @@ export default {
   }
   .v-enter-active,
   .v-leave-active{
-    transition:all 0.7s -0.3s;
+    transition:all 0.6s -0.2s;
     position: absolute;
   }
 </style>
