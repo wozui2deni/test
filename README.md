@@ -1,21 +1,14 @@
-# webpack7
+# vue + vue-router + axios + webpack 完成单页面小项目开发
 
-> A Vue.js project
 
-## Build Setup
+## 1.完成首页布局及注册各路由组件
+1.1 首页Header采用固定头部，名为“吴泰兴的小项目”
+1.2 中间为路由区域，根据底部的Tabbar切换组件，默认为/home路由对应的组件
+1.3 底部为Tabbar区域，分别注册四个路由，对应四个组件，四个组件的内容则根据路由渲染在中间路由区域
 
-``` bash
-# install dependencies
-npm install
+## 2.第一个路由/home组件的页面布局
+2.1 头部采用的是mint-ui组件的轮播图，内容则是通过获取免费API数据接口渲染出来的
+2.2 中间部分为六宫格导航区域
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 3.第四个路由/loginContainer的页面布局
+5.1 这是一个登录成功后才能显示的组件，如果没登录，则被强制push到登录组件

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h3>memberContainer组件</h3>
+    <h2>这是登录成功后的页面</h2>
   </div>
 </template>
 
 <script>
   export default {
-    name: "memberContainer"
-  }
+    name: "loginContainer",
+    }
 </script>
 
 <style scoped lang="scss">

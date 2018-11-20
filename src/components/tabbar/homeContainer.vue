@@ -13,7 +13,7 @@
 
       <!--六宫格 区域-->
       <ul class="mui-table-view mui-grid-view mui-grid-9">
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/newslist">
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/newslist">
           <img src="../../assets/menu1.png">
           <div class="mui-media-body">新闻资讯</div></router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
@@ -53,7 +53,8 @@
             this.axios.get("/api/toutiao/index",{params:{type:"shishang",key:"a6557979e51d6b44776f798b715452a0"}}).then(result=>{
             this.content = result.data.result.data;
           }).catch(error=>{
-            Toast("获取图片失败"+error)
+              console.log(error);
+              Toast("获取图片失败"+error)
             });
         }
     }}
@@ -63,6 +64,11 @@
 .mint-swipe{
   height: 25em;
   text-align: center;
+  h2{
+    font-size: 20px;
+    height: 40px;
+    overflow: hidden;
+  }
   img{
     height: 80%;
   }

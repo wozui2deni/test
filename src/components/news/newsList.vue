@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ul class="mui-table-view" v-for="item in this.news" :key="item.uniquekey">
-      <li class="mui-table-view-cell mui-media">
+    <ul class="mui-table-view">
+      <li class="mui-table-view-cell mui-media" v-for="item in this.news" :key="item.uniquekey">
         <a :href="item.url">
           <img class="mui-media-object mui-pull-left" :src="item.thumbnail_pic_s">
           <div class="mui-media-body">
@@ -35,8 +35,8 @@
                 this.news = result.data.result.data;
                 // console.log(result);
               }).catch(error=>{
-                Toast("新闻列表获取失败"+error);
-              // console.log(error);
+                // Toast("新闻列表获取失败"+error);
+              console.log(error);
             })
             }
           }
