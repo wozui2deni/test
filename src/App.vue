@@ -16,7 +16,7 @@
       </router-link>
       <router-link class="mui-tab-item" to="/newslist">
         <span class="mui-icon mui-icon-search"></span>
-        <span class="mui-tab-label">搜索</span>
+        <span class="mui-tab-label">资讯</span>
       </router-link>
       <router-link class="mui-tab-item" to="/shopcar">
         <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
