@@ -20,6 +20,13 @@ module.exports = {
             '^/api': ''
           }
         }
+      // '/json': {
+      //   target: 'localhost:3000',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/json': ''
+      //   }
+
 },
 
     // Various Dev Server settings

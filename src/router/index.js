@@ -26,7 +26,7 @@ const router =  new Router({
   linkActiveClass:"mui-active" //默认是router-link-active,通过linkActiveClass更改成mui-active(mui自带)
 })
 router.beforeEach((to, from, next) => {
-  let token = window.localStorage.getItem('token')
+  let token = window.sessionStorage.getItem('username')
   if (to.matched.some(record => record.meta.requiresAuth) && (!token || token === null)) {
     Toast("检测到您还没登录");
     next({

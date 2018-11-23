@@ -16,7 +16,7 @@
         </div>
       </form>
       <div class="mui-content-padded">
-        <button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+        <button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary" @click="toCheck">注册</button>
       </div>
       <div class="mui-content-padded oauth-area">
 
@@ -32,6 +32,26 @@
           return{
             username:"",
             password:"",
+          }
+      },
+      methods:{
+          toCheck(){
+            this.axios.get("http://localhost:3000/user?username="+this.username).then(result=>{
+              if (result.data.length>0){
+                alert("用户名已存在");
+              } else{
+                this.toRegister();
+              }
+            })
+          },
+          toRegister(){
+            this.axios.post("http://localhost:3000/user",{"id":Math.random()*100000000+2,"username":this.username,"password":this.password}).then(result=> {
+              // console.log(result);
+              alert("注册成功");
+              this.$router.push({path: "/login"})
+            }).catch(error=>{
+              alert("注册失败:"+error);
+            })
           }
       }
     }
